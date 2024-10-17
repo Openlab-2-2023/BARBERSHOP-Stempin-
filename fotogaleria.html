@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogaléria - Barber Shop</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1b29;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 40px 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery-item {
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        #lightbox:target {
+            display: flex;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            text-decoration: none;
+        }
+        /* Štýly pre tlačidlo Home */
+        .home-button {
+            margin: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #7d51e0;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .home-button:hover {
+            background-color: #533483;
+        }
+    </style>
+</head>
+<body>
+
+<header>Fotogaléria</header>
+
+<!-- Tlačidlo Home -->
+<a href="index.html" class="home-button">Home</a>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <a href="#lightbox1">
+            <img src="img/photo1.jpg" alt="Fotka 1">
+        </a>
+    </div>
+    <div class="gallery-item">
+        <a href="#lightbox2">
+            <img src="img/photo2.jpg" alt="Fotka 2">
+        </a>
+    </div>
+    <div class="gallery-item">
+        <a href="#lightbox3">
+            <img src="img/photo3.jpg" alt="Fotka 3">
+        </a>
+    </div>
+    <!-- Pridávaj ďalšie obrázky tu -->
+</div>
+
+<!-- Lightbox pre zobrazenie fotky po kliknutí -->
+<div id="lightbox1" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/photo1.jpg" alt="Fotka 1">
+</div>
+
+<div id="lightbox2" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/photo2.jpg" alt="Fotka 2">
+</div>
+
+<div id="lightbox3" class="lightbox">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="img/photo3.jpg" alt="Fotka 3">
+</div>
+
+</body>
+</html>
