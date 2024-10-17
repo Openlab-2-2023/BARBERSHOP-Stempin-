@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prihlásenie - Barber Shop</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #1c1b29;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #7d51e0;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #533483;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Prihlásenie</h1>
+<form id="loginForm">
+    <input type="text" id="username" placeholder="Používateľské meno" required>
+    <input type="submit" value="Prihlásiť sa">
+</form>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Zabránime predvolenej akcii formulára
+
+        // Získame používateľské meno z formulára
+        const username = document.getElementById('username').value;
+
+        // Uložíme používateľské meno do localStorage
+        localStorage.setItem('username', username);
+
+        // Presmerujeme na domovskú stránku
+        window.location.href = 'index.html';
+    });
+</script>
+
+</body>
+</html>
