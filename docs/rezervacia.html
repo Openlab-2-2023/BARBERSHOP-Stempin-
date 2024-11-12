@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervácia termínu</title>
+    
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
@@ -13,15 +14,16 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            margin: 10;
         }
         .container {
             background-color: #27293d;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 100px;
+            border-radius: 40px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 100%;
+            
         }
         h1 {
             text-align: center;
@@ -46,29 +48,39 @@
             background-color: #0ed2f7;
             cursor: pointer;
             font-weight: bold;
+            font-size: 18px;
         }
         input[type="submit"]:hover {
-            background-color: #00b670;
+            background-color: #11e292;
         }
-        #home-btn {
+         a{
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+         }
+        .home {
             display: inline-block;
             margin-bottom: 20px;
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #0ed2f7;
-            border-radius: 5px;
+            border-radius: 8px;
             color: lime;
             text-decoration: none;
-            font-weight: bold;
+             
+        
         }
-        #home-btn:hover {
-            background-color: #00b670;
+        .home:hover {
+            background-color: #11e292;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="#home-btn ">NÁVRAT</a> 
+    <div class="home">
+     <a href="index.html">NÁVRAT</a>    
+    </div>
+    
     <h1>Rezervujte si svoj termín</h1>
     <form id="bookingForm">
         <label for="name">Vaše meno:</label>
@@ -123,13 +135,11 @@
         } else {
             messageDiv.innerHTML = `<p style="color: lime;">Rezervácia úspešná! Potvrdzujúci e-mail bol odoslaný.</p>`;
 
-            console.log(`Email odoslaný na adresu: ${email}`);
-            console.log(`Meno: ${name}, Dátum: ${date}, Čas: ${time}`);
-            
-            
             bookedAppointments.push({ date: date, time: time });
         }
     });
+            
+    
 
     document.getElementById('date').addEventListener('change', function() {
         const selectedDate = new Date(this.value);
