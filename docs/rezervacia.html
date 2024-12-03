@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervácia termínu</title>
-    
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
@@ -23,7 +22,6 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 100%;
-            
         }
         h1 {
             text-align: center;
@@ -53,11 +51,11 @@
         input[type="submit"]:hover {
             background-color: #11e292;
         }
-         a{
+        a {
             font-size: 15px;
             font-weight: bold;
             color: white;
-         }
+        }
         .home {
             display: inline-block;
             margin-bottom: 20px;
@@ -66,8 +64,6 @@
             border-radius: 8px;
             color: lime;
             text-decoration: none;
-             
-        
         }
         .home:hover {
             background-color: #11e292;
@@ -78,7 +74,7 @@
 
 <div class="container">
     <div class="home">
-     <a href="index.html">NÁVRAT</a>    
+        <a href="index.html">NÁVRAT</a>
     </div>
     
     <h1>Rezervujte si svoj termín</h1>
@@ -102,7 +98,6 @@
 </div>
 
 <script>
-   
     const bookedAppointments = [
         { date: '2024-10-15', time: '10:00' },
         { date: '2024-10-16', time: '14:00' },
@@ -117,7 +112,6 @@
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
 
-        
         const selectedDate = new Date(date);
         const dayOfWeek = selectedDate.getUTCDay();
         if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -125,7 +119,6 @@
             return;
         }
 
-       
         const isBooked = bookedAppointments.some(appointment => appointment.date === date && appointment.time === time);
 
         const messageDiv = document.getElementById('message');
@@ -134,18 +127,17 @@
             messageDiv.innerHTML = `<p style="color: red;">Tento termín už nie je voľný. Vyberte iný dátum alebo čas.</p>`;
         } else {
             messageDiv.innerHTML = `<p style="color: lime;">Rezervácia úspešná! Potvrdzujúci e-mail bol odoslaný.</p>`;
-
             bookedAppointments.push({ date: date, time: time });
+
+            
+            document.getElementById('bookingForm').reset();
         }
     });
-            
-    
 
     document.getElementById('date').addEventListener('change', function() {
         const selectedDate = new Date(this.value);
         const dayOfWeek = selectedDate.getUTCDay();
 
-        
         if (dayOfWeek === 0 || dayOfWeek === 6) {
             this.value = '';
             alert('Vyberte pracovný deň. Víkendy nie sú dostupné na rezerváciu.');
