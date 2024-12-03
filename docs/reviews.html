@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recenzie</title>
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -143,18 +144,19 @@
             font-size: 24px;
             color: #444;
             cursor: pointer;
-            transition: color 0.2s ease;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            padding: 5px;
+            transition: color 0.2s ease, border 0.2s ease;
         }
 
-        .rating input:checked ~ label,
-        .rating label:hover,
-        .rating label:hover ~ label {
-            color: #ffd700;
-        }
+        
+        
 
-        .rating input:checked ~ label,
-        .rating input:checked ~ label ~ label {
+        
+        .rating input:checked + label {
             color: #ffd700;
+            border: 2px solid white;
         }
     </style>
 </head>
@@ -180,14 +182,14 @@
     <h2>Recenzie</h2>
     <div class="reviews" id="reviews">
         <div class="review">
-            <h3>Ján Novák</h3>
+            <h3>Peter Vzduchovka</h3>
             <p>Skvelé služby, veľmi príjemný personál. Odporúčam!</p>
             <div class="stars">⭐⭐⭐⭐⭐</div>
         </div>
         <div class="review">
-            <h3>Martina Horváthová</h3>
+            <h3>Milan Klavesnica</h3>
             <p>Výborný prístup a dokonalý strih. Určite sa vrátim.</p>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars">⭐⭐⭐⭐</div>
         </div>
     </div>
 
@@ -200,15 +202,15 @@
 
         <label for="rating">Hodnotenie:</label>
         <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5" required>
+            <input type="checkbox" id="star5" name="rating" value="5">
             <label for="star5">⭐</label>
-            <input type="radio" id="star4" name="rating" value="4">
+            <input type="checkbox" id="star4" name="rating" value="4">
             <label for="star4">⭐</label>
-            <input type="radio" id="star3" name="rating" value="3">
+            <input type="checkbox" id="star3" name="rating" value="3">
             <label for="star3">⭐</label>
-            <input type="radio" id="star2" name="rating" value="2">
+            <input type="checkbox" id="star2" name="rating" value="2">
             <label for="star2">⭐</label>
-            <input type="radio" id="star1" name="rating" value="1">
+            <input type="checkbox" id="star1" name="rating" value="1">
             <label for="star1">⭐</label>
         </div>
 
@@ -217,29 +219,15 @@
 </div>
 
 <script>
-    document.querySelectorAll('.rating label').forEach(label => {
-        label.addEventListener('mouseover', () => {
-            label.classList.add('hover');
-            let previous = label.previousElementSibling;
-            while (previous) {
-                previous.classList.add('hover');
-                previous = previous.previousElementSibling;
-            }
-        });
-
-        label.addEventListener('mouseout', () => {
-            document.querySelectorAll('.rating label').forEach(l => l.classList.remove('hover'));
-        });
-    });
-
     document.getElementById('reviewForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
         const review = document.getElementById('review').value;
-        const rating = document.querySelector('input[name="rating"]:checked').value;
+        const checkedStars = document.querySelectorAll('input[name="rating"]:checked');
+        const rating = checkedStars.length;
 
-        if (name && review && rating) {
+        if (name && review && rating > 0) {
             const reviewContainer = document.createElement('div');
             reviewContainer.classList.add('review');
 
@@ -260,7 +248,7 @@
             document.getElementById('reviews').appendChild(reviewContainer);
             document.getElementById('reviewForm').reset();
         } else {
-            alert('Vyplňte prosím všetky polia.');
+            alert('Vyplňte prosím všetky polia a vyberte aspoň jednu hviezdičku.');
         }
     });
 </script>
