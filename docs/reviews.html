@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recenzie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: black;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        header nav a:hover {
+            color: #0ed2f7;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #1c1c1c;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background-color: #0ed2f7;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #11e292;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .reviews {
+            margin-top: 20px;
+        }
+
+        .review {
+            background-color: #1f1f1f;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .review h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+
+        .review p {
+            margin: 5px 0;
+            color: #cfcfcf;
+        }
+
+        .review .stars {
+            color: #ffd700;
+            margin-top: 5px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        input[type="submit"] {
+            background-color: #0ed2f7;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #11e292;
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 24px;
+            color: #444;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ffd700;
+        }
+
+        .rating input:checked ~ label,
+        .rating input:checked ~ label ~ label {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">BARBER SHOP</div>
+    <nav>
+        <a href="index.html">Domov</a>
+        <a href="reservation.html">Rezervácie</a>
+        <a href="reviews.html">Recenzie</a>
+        <a href="about.html">O nás</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Hodnotenia od našich zákazníkov</h1>
+    <p>Prečítajte si recenzie a podeľte sa o svoje skúsenosti!</p>
+    <button onclick="document.getElementById('reviewForm').scrollIntoView()">Pridať recenziu</button>
+</div>
+
+<div class="container">
+    <h2>Recenzie</h2>
+    <div class="reviews" id="reviews">
+        <div class="review">
+            <h3>Ján Novák</h3>
+            <p>Skvelé služby, veľmi príjemný personál. Odporúčam!</p>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="review">
+            <h3>Martina Horváthová</h3>
+            <p>Výborný prístup a dokonalý strih. Určite sa vrátim.</p>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+    </div>
+
+    <form id="reviewForm">
+        <label for="name">Vaše meno:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="review">Vaša recenzia:</label>
+        <textarea id="review" name="review" rows="4" required></textarea>
+
+        <label for="rating">Hodnotenie:</label>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" required>
+            <label for="star5">⭐</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">⭐</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">⭐</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">⭐</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">⭐</label>
+        </div>
+
+        <input type="submit" value="Odoslať recenziu">
+    </form>
+</div>
+
+<script>
+    document.querySelectorAll('.rating label').forEach(label => {
+        label.addEventListener('mouseover', () => {
+            label.classList.add('hover');
+            let previous = label.previousElementSibling;
+            while (previous) {
+                previous.classList.add('hover');
+                previous = previous.previousElementSibling;
+            }
+        });
+
+        label.addEventListener('mouseout', () => {
+            document.querySelectorAll('.rating label').forEach(l => l.classList.remove('hover'));
+        });
+    });
+
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const review = document.getElementById('review').value;
+        const rating = document.querySelector('input[name="rating"]:checked').value;
+
+        if (name && review && rating) {
+            const reviewContainer = document.createElement('div');
+            reviewContainer.classList.add('review');
+
+            const reviewName = document.createElement('h3');
+            reviewName.textContent = name;
+
+            const reviewText = document.createElement('p');
+            reviewText.textContent = review;
+
+            const reviewStars = document.createElement('div');
+            reviewStars.classList.add('stars');
+            reviewStars.textContent = '⭐'.repeat(rating);
+
+            reviewContainer.appendChild(reviewName);
+            reviewContainer.appendChild(reviewText);
+            reviewContainer.appendChild(reviewStars);
+
+            document.getElementById('reviews').appendChild(reviewContainer);
+            document.getElementById('reviewForm').reset();
+        } else {
+            alert('Vyplňte prosím všetky polia.');
+        }
+    });
+</script>
+
+</body>
+</html>
