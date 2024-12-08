@@ -6,6 +6,10 @@
     <title>Recenzie</title>
     
     <style>
+        @font-face {
+       font-family: "My font";
+       src: url(fonts/Tiny5-Regular.ttf);
+        }
         body {
             font-family: 'Arial', sans-serif;
             background-color: #121212;
@@ -14,13 +18,18 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            background-color: black;
+        font-family: "My font";
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        background-color: #151515;
+        position: sticky;
+        top: 0;
         }
-
+        header h1 {
+        font-size: 30px;
+        }
         header .logo {
             font-size: 24px;
             font-weight: bold;
@@ -29,8 +38,8 @@
         header nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
+            margin-left: 25px;
+            font-size: 25px;
         }
 
         header nav a:hover {
@@ -150,10 +159,6 @@
             transition: color 0.2s ease, border 0.2s ease;
         }
 
-        
-        
-
-        
         .rating input:checked + label {
             color: #ffd700;
             border: 2px solid white;
@@ -166,8 +171,7 @@
     <div class="logo">BARBER SHOP</div>
     <nav>
         <a href="index.html">Domov</a>
-        <a href="reservation.html">Rezervácie</a>
-        <a href="reviews.html">Recenzie</a>
+        <a href="rezervacia.html">Rezervácie</a>
         <a href="about.html">O nás</a>
     </nav>
 </header>
