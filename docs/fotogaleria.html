@@ -10,16 +10,34 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            gap: 50px;
             padding: 20px;
         }
 
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
+        }
+        footer {
+            background-color: #151515;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer .social-media a:hover {
+            color: #0ed2f7;
         }
 
         .gallery img:hover {
@@ -73,9 +91,12 @@
 </header>
 
 <section class="gallery">
-    <img src="Images/juriš.jpg" alt="Barber Image 1" onclick="openModal(this.src)">
+    <img src="Images/tím.jpg"alt="Barber Image 6" onclick="openModal(this.src)">
     <img src="Images/strih.jpg" alt="Barber Image 2" onclick="openModal(this.src)">
+    <img src="Images/juriš.jpg" alt="Barber Image 1" onclick="openModal(this.src)">
     <img src="Images/brada.jpg" alt="Barber Image 3" onclick="openModal(this.src)">
+    <img src="Images/interier.jpg"alt="Barber Image 4" onclick="openModal(this.src)">
+    <img src="Images/strojčeky.jpg"alt="Barber Image 5" onclick="openModal(this.src)">
     
 </section>
 
