@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náš Tím - Barber Shop</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+          @font-face {
+       font-family: "My font";
+       src: url(fonts/Tiny5-Regular.ttf);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+        }
+        header {
+        font-family: "My font";
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+
+        background-color: #151515;
+        position: sticky;
+        top: 0;
+        }
+        
+        header h1 {
+        font-size: 30px;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1px;
+            font-size: 25px;
+        }
+
+        header nav a:hover {
+            color: #0ed2f7;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+       
+        .team-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            background-color: #272727;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+        }
+        .team-member div {
+            flex: 1;
+        }
+        .team-member h2 {
+            font-size: 24px;
+            color: #0ed2f7;
+            margin-bottom: 10px;
+        }
+        .team-member p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        footer {
+            background-color: #151515;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 40px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer .social-media a:hover {
+            color: #0ed2f7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">BARBER SHOP</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="rezervacia.html">Reservation</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+    </header>
+
+    <div class="team-section">
+        
+        <div class="team-member">
+            <img src="Images/juriš.jpg" alt="Team Member 1">
+            <div>
+                <h2>Martin Juriš</h2>
+                <p>Martin je náš hlavný barber s viac ako 10-ročnou praxou. Špecializuje sa na moderné pánske strihy a úpravu brady. Jeho precíznosť a zmysel pre detail sú zárukou vašej spokojnosti.</p>
+            </div>
+        </div>
+
+        
+        <div class="team-member">
+            <img src="Images/barber 2.jpg" alt="Team Member 2">
+            <div>
+                <h2>Patrik Fonš</h2>
+                <p>Peter je odborník na klasické techniky holenia a relaxačné služby. Jeho priateľský prístup a profesionalita vás presvedčia, že ste v správnych rukách.</p>
+            </div>
+        </div>
+
+        
+        <div class="team-member">
+            <img src="Images/barber 3.jpg" alt="Team Member 3">
+            <div>
+                <h2>Martin Makuch</h2>
+                <p>Juraj je mladý talentovaný barber, ktorý sleduje najnovšie trendy v pánskom stylingu. Jeho kreativita a energia prinášajú jedinečný zážitok.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Barber Shop. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>
