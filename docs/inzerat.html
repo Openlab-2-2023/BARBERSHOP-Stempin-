@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inzerat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b1b;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #151515;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #0ed2f7;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #0ed2f7;
+        }
+
+        .hero-content h3 {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        form {
+            background-color: #272727;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #3a3a3a; 
+    color: #fff; 
+}
+
+form input:focus,
+form textarea:focus {
+    outline: 2px solid #0ed2f7;
+    background-color: #2e2e2e; 
+}
+
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #0ed2f7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #09b6db;
+}
+
+.form-container {
+    margin-top: -100px;
+}
+
+.alert {
+    color: lime;
+    font-weight: bold;
+    padding: 50px;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+    margin: 20px auto;
+    max-width: 700px;
+}
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/logo.webp" alt="Barber Shop Logo">
+            <h1>BARBER SHOP</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chceš byť v našom tíme??</h1>
+            <h3>Si na správnom mieste, vyplň formulár a zaraď sa do výberového konania.</h3>
+        </div>
+    </section>
+
+   
+    <div id="confirmation" class="alert">
+        Váš dotazník bol úspešne odoslaný! Budeme vás kontaktovať.
+    </div>
+
+ 
+    <div class="form-container">
+        <form id="jobForm" action="#" method="post" onsubmit="submitForm(event)">
+            <label for="name">Meno:</label>
+            <input type="text" id="name" name="name" placeholder="Zadajte svoje meno" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Zadajte svoj e-mail" required>
+
+            <label for="age">Vek:</label>
+            <input type="number" id="age" name="age" placeholder="Zadajte svoj vek" required>
+
+            <label for="experience">Skúsenosti:</label>
+            <textarea id="experience" name="experience" rows="4" placeholder="Opíšte vaše skúsenosti" required></textarea>
+
+            <button type="submit">Odoslať</button>
+        </form>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); 
+
+            
+            document.getElementById('confirmation').style.display = 'block';
+
+            
+            document.getElementById('jobForm').reset();
+        }
+    </script>
+    
+    <footer>
+        <p>&copy; 2024 Barber Shop. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>

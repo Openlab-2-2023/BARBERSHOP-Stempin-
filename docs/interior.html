@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interiér - Barber Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: "My font";
+            src: url(fonts/Tiny5-Regular.ttf);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            font-family: "My font";
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #151515;
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+        header .logo h1 {
+            font-size: 25px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 25px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #0ed2f7;
+        }
+        .interior-section {
+            margin-top: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .interior-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #272727;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interior-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+        }
+        .interior-item img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            cursor: pointer; /* Ukazuje, že je obrázok klikateľný */
+        }
+        .interior-item div {
+            flex: 1;
+        }
+        .interior-item h2 {
+            font-size: 24px;
+            color: #0ed2f7;
+            margin-bottom: 10px;
+        }
+        .interior-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        #lightbox:after {
+            content: "✖";
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #151515;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 40px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer .social-media a:hover {
+            color: #0ed2f7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BARBER SHOP</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">About US</a></li>
+                <li><a href="rezervacia.html">Rezervácia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Lightbox Container -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zväčšený obrázok">
+    </div>
+
+    <div class="interior-section">
+        <h1 style="text-align: center; color: #0ed2f7; margin-bottom: 40px;">Náš Interiér</h1>
+
+        <!-- kreslá -->
+        <div class="interior-item">
+            <img src="Images/interier.jpg" alt="Barber kreslá" onclick="openLightbox(this.src)">
+            <div>
+                <h2>Barber kreslá</h2>
+                <p>Naše moderné a pohodlné barber kreslá sú navrhnuté pre maximálny komfort. Každé kreslo je prispôsobené na dlhšie sedenie a presné úpravy strihu.</p>
+            </div>
+        </div>
+
+        <!-- Vybavenie -->
+        <div class="interior-item">
+            <img src="Images/strojčeky.jpg" alt="Nástroje a vybavenie" onclick="openLightbox(this.src)">
+            <div>
+                <h2>Nástroje a vybavenie</h2>
+                <p>Používame profesionálne nástroje od popredných značiek, aby sme dosiahli dokonalé výsledky. Ostré nožnice, kvalitné strojčeky a špičkové produkty sú základom našej práce.</p>
+            </div>
+        </div>
+
+        <!-- Zona -->
+        <div class="interior-item">
+            <img src="Images/oddych.jpg" alt="Oddychová zóna" onclick="openLightbox(this.src)">
+            <div>
+                <h2>Oddychová zóna</h2>
+                <p>Relaxujte v našej oddychovej zóne s pohodlným sedením, kávou a časopismi. Ideálne miesto na chvíľu oddychu pred alebo po vašom strihu.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Barber Shop. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript na lightbox -->
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
