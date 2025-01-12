@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recenzie</title>
-    
     <style>
         @font-face {
-       font-family: "My font";
-       src: url(fonts/Tiny5-Regular.ttf);
+            font-family: "My font";
+            src: url(fonts/Tiny5-Regular.ttf);
         }
         body {
             font-family: 'Arial', sans-serif;
@@ -18,18 +17,18 @@
         }
 
         header {
-        font-family: "My font";
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 30px;
-        background-color: #151515;
-        position: sticky;
-        top: 0;
+            font-family: "My font";
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #151515;
+            position: sticky;
+            top: 0;
         }
-        
+
         header h1 {
-        font-size: 30px;
+            font-size: 30px;
         }
         header .logo {
             font-size: 24px;
@@ -41,6 +40,7 @@
             text-decoration: none;
             margin-left: 25px;
             font-size: 25px;
+            font-weight: bold;
         }
 
         header nav a:hover {
@@ -170,13 +170,13 @@
 
 <header>
     <div class="logo">BARBER SHOP</div>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="rezervacia.html">Reservation</a></li>
-        <li><a href="fotogaleria.html">Gallery</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="rezervacia.html">Reservation</a>
+        <a href="fotogaleria.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About</a>
+    </nav>
 </header>
 
 <div class="hero">
@@ -226,7 +226,20 @@
 </div>
 
 <script>
-    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    const stars = document.querySelectorAll('.rating input');
+
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            for (let i = 0; i <= index; i++) {
+                stars[i].checked = true;
+            }
+            for (let i = index + 1; i < stars.length; i++) {
+                stars[i].checked = false;
+            }
+        });
+    });
+
+    document.getElementById('reviewForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
