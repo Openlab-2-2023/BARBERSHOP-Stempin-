@@ -35,6 +35,15 @@
         header .logo h1 {
             font-size: 25px;
         }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
         nav ul {
             list-style: none;
             display: flex;
@@ -141,18 +150,22 @@
 <body>
     <header>
         <div class="logo">
+            <img src="https://marketplace.canva.com/EAF6DOq8wwA/1/0/1600w/canva-black-and-white-modern-illustrative-barbershop-logo-MnTa2CvxlTE.jpg" alt="Barber Shop Logo">
             <h1>BARBER SHOP</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="rezervacia.html">Reservation</a></li>
-                <li><a href="fotogaleria.html">Gallery</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Domov</a></li>
+                    <li><a href="rezervacia.html">Rezervácia</a></li>
+                    <li><a href="fotogaleria.html">Galéria</a></li>
+                    <li><a href="reviews.html">Recenzie</a></li>
+                    <li><a href="about.html">O nás</a></li>
+                </ul>
+            </nav>
         </nav>
     </header>
+
 
     <!-- Lightbox Container -->
     <div id="lightbox" onclick="closeLightbox()">
